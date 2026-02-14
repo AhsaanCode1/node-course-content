@@ -1,0 +1,42 @@
+Interpreted => A compiled program doesn't work everywhere.
+-> Interpreted code are written once and run everywhere.
+-> Must have a runtime, node.exe
+-> Node.exe is compiled program for every OS/CPU.
+Compiled => ** Whatever code is written, needs to be translated into something that the CPU understands(that is machine code) -> this is called compiling
+-> Convert code into instructions.
+-> Linking(all those files need to be linked to run) creates executable file.
+-> So, compiling produces machine code in form of object files, Each object file may present a source file,
+Object files are not ready to be run, they need to be linked and create an executable
+
+=>> Linking: Linkers creates an executable file, Finds and links all object files required and create one file. The file is an "exeecutable"
+
+Machine Code => specific to the CPU, Each CPU has different instructions set
+
+High Level Languages: Abstractions to hide complexity. Need to compile for a CPU. Compile turns code to machine code. Linking creates executable file.
+
+===>> Interpreted Languages are slow, So v8 comes into picture
+JIT(Just in Time Compilation)
+I'm interpreting this code a lot, Let me compile it directly to machine code.
+Put it on the heap, Mark memory as executable , point the CPU program counter it.
+
+===>> Garbage Collection.
+Node(v8) implement it as part of code
+Garbage collectin is part of the runtime,Tags every object and tracks it.
+
+====>> V8 Engine
+-> The primary objective is to exucute the JavaScript code outside of a web browser environment with high performance and efficiency.
+-> Performance Optimization: V8 employs advanced techniques, such as Just-In-Time compilation, to optimize code execution at runtime.
+-> Javascript -->> Bytecode (faster)
+-> Mark & Sweep Garbage Collection: Sweep everything and mark everything that is not in use and at the end remove that is not required.
+-> Efficient heap memory management: JS is dynamically typed, we don't know how large objects are, makes it slow, to counter this V8 helps again.
+-> V8 stores primitive data types in the stack
+-> Objects and Arrays are stored in the heap. Both are treated as objects.
+-> Inline caching.
+
+-->> Inline Caching: What v8 engine does is that first they run the function normally as you would expect. But, after some time when the functin is called repeadtedly, they assume
+or they act smart and just equals the repeated function calls to what the function returns to save time and improve the efficiency or speed. This is called Inline-caching.
+Ths gist of this whole inline caching is to write better and efficient code knowing how the code will be processed by the engine.
+
+==>> v8 has 2 compilers, Full-Codegen & Crankshaft.
+1. Full-Codegen:- parses js directly to machine code, without an intermediary language, allowing it to begin execution sooner.
+2. Crankshaft:- A JIT compiler, optimizes code for hot methods. this means that in the same v8 program, different levels of optimized code co-exists at the same time.

@@ -1,0 +1,19 @@
+Initial phase runs only once.
+---Main Module----
+-> All main code execute synchronously
+-> No callbacks can get executed
+-> Main loop not yet initialized
+-> Main Module / Initial phase
+-> Runs Once!
+
+-------------------
+-> Modules are resolved/ loaded first
+-> Code executed first
+-> All require/import module are loaded
+(require: is a part of the original, synchronous CommonJS module system.
+import: is part of the newer, asynchronous ES Modules(ESM) standard.
+The choice between the 2 impacts how modules are loaded and where they can be used in your code.
+)
+
+-> Before running any of the main module
+-> There are Modules that load other modules

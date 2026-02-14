@@ -1,0 +1,19 @@
+-> Why do we have the event-loop
+1. Node Execution:
+It's a C++ program, 
+The first input is a JS file,
+Node reads the file and interpret the JS,
+JS code is executed line by line serially untill it is done.
+
+------Event Loop---------
+-> Single Thread
+-> Asynchronous Non-blocking I/O
+-> A loop with phases
+-> Each phase has queue of callbacks
+-> Terminates when there is no callbacks left 
+* A callback is a piece of code in JS, that is triggered after a specific event is tatisfied.
+ 
+ ## Summary
+ 1. The first input is a js file, Node reads the file and execute the js
+ 2. After the execution Node starts a loop, Execution can register callbacks.
+ 3. Callbacks can register more callbacks
